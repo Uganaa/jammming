@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 
 function SearchBar(props) {
+  const { onSearch } = props;
   const [query, setQuery] = useState("");
 
   const handleInputChange = useCallback((inTxt) => {
@@ -8,10 +9,10 @@ function SearchBar(props) {
   }, []);
 
   const handleSearch = useCallback(() => {
-    if (props.onSearch) {
-      props.onSearch(query);
+    if (onSearch) {
+      onSearch(query);
     }
-  }, [props.onSearch, query]);
+  }, [onSearch, query]);
 
   return (
     <div>
